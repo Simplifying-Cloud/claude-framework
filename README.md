@@ -121,6 +121,7 @@ claude-framework/
 - **security-specialist**: Security and vulnerability specialist
 - **work-summary-agent**: Work summary generator
 - **performance-auditor**: Session performance analyzer
+- **filesystem-orchestrator**: Optimizes complex filesystem operations
 
 ### Testing Agents
 - **test-automation-engineer**: Comprehensive test suite creation

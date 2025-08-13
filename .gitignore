@@ -1,0 +1,208 @@
+# Claude Framework .gitignore
+
+# Sensitive Data
+*.key
+*.pem
+*.cert
+*.crt
+*.p12
+*.pfx
+.env
+.env.*
+!.env.example
+secrets/
+credentials/
+
+# API Keys and Tokens
+*_token
+*_key
+*_secret
+api_keys.json
+tokens.json
+auth.json
+
+# Backup Files
+*.bak
+*.backup
+*.old
+*.orig
+*~
+.#*
+
+# Temporary Files
+*.tmp
+*.temp
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+*.log.*
+
+# IDE and Editor Files
+.vscode/
+.idea/
+*.sublime-*
+.project
+.classpath
+.settings/
+*.iml
+.atom/
+.history/
+
+# System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+desktop.ini
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+.venv
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.yarn/
+package-lock.json
+yarn.lock
+
+# Go
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+vendor/
+go.sum
+
+# Build Artifacts
+build/
+dist/
+out/
+target/
+bin/
+obj/
+
+# Coverage
+coverage/
+*.cover
+*.coverage
+.coverage.*
+htmlcov/
+
+# Documentation Build
+docs/_build/
+site/
+
+# Local Configuration Overrides
+*.local
+*.local.*
+local/
+override/
+
+# User-Specific Settings
+settings/personal/
+settings/work/
+settings/client/
+*.user.json
+*.personal.json
+
+# Backup Directories (keep structure, ignore contents)
+backups/*/*
+!backups/.gitkeep
+
+# MCP Server Local Data
+mcp-servers/data/
+mcp-servers/cache/
+mcp-servers/*.db
+mcp-servers/*.sqlite
+
+# Agent Development
+agents/custom/*.draft.yaml
+agents/custom/*.test.yaml
+agents/dev/
+
+# Hook Development
+hooks/custom/*.test.sh
+hooks/custom/*.dev.sh
+
+# Example Projects (keep structure, ignore builds)
+examples/projects/*/build/
+examples/projects/*/dist/
+examples/projects/*/node_modules/
+
+# Archives
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+*.rar
+*.7z
+
+# Claude-specific
+.claude-cache/
+.claude-temp/
+*.claude-session
+
+# Environment-specific
+.env.development
+.env.production
+.env.staging
+.env.test
+
+# Terraform (if using for infrastructure)
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+
+# Docker (if containerizing)
+.dockerignore
+docker-compose.override.yml
+
+# macOS
+.AppleDouble
+.LSOverride
+Icon
+.DocumentRevisions-V100
+.fseventsd
+.TemporaryItems
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Windows
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+.directory
+.Trash-*
+.nfs*
+
+# Custom ignore patterns (add your own below)
+# =========================================

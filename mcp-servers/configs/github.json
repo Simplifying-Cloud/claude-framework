@@ -1,0 +1,44 @@
+{
+  "name": "github",
+  "version": "1.0.0",
+  "description": "GitHub API integration for repository management",
+  "server": {
+    "command": "npx",
+    "args": [
+      "@modelcontextprotocol/server-github"
+    ],
+    "env": {
+      "GITHUB_TOKEN": "${GITHUB_TOKEN}"
+    }
+  },
+  "capabilities": {
+    "tools": [
+      "create_or_update_file",
+      "create_pull_request",
+      "create_issue",
+      "search_repositories",
+      "get_repository",
+      "list_repositories",
+      "fork_repository",
+      "create_branch",
+      "get_pull_request",
+      "list_pull_requests",
+      "list_issues",
+      "update_issue"
+    ]
+  },
+  "configuration": {
+    "rateLimit": {
+      "enabled": true,
+      "maxRequests": 5000,
+      "perHour": true
+    },
+    "authentication": {
+      "type": "token",
+      "tokenEnvVar": "GITHUB_TOKEN"
+    },
+    "defaultOrganization": "",
+    "defaultVisibility": "private"
+  },
+  "enabled": true
+}

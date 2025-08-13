@@ -1,0 +1,108 @@
+# Git attributes for Claude Framework
+
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Force LF for scripts
+*.sh text eol=lf
+*.bash text eol=lf
+*.zsh text eol=lf
+
+# Force LF for configuration files
+*.json text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.toml text eol=lf
+*.ini text eol=lf
+*.cfg text eol=lf
+*.conf text eol=lf
+
+# Force LF for documentation
+*.md text eol=lf
+*.txt text eol=lf
+*.rst text eol=lf
+CLAUDE.md text eol=lf
+README* text eol=lf
+LICENSE* text eol=lf
+CHANGELOG* text eol=lf
+
+# Force LF for source code
+*.py text eol=lf
+*.js text eol=lf
+*.ts text eol=lf
+*.jsx text eol=lf
+*.tsx text eol=lf
+*.go text eol=lf
+*.rs text eol=lf
+*.c text eol=lf
+*.cpp text eol=lf
+*.h text eol=lf
+*.hpp text eol=lf
+*.java text eol=lf
+*.rb text eol=lf
+
+# Force LF for web files
+*.html text eol=lf
+*.css text eol=lf
+*.scss text eol=lf
+*.sass text eol=lf
+*.less text eol=lf
+*.vue text eol=lf
+*.svelte text eol=lf
+
+# Force LF for Docker files
+Dockerfile text eol=lf
+docker-compose*.yml text eol=lf
+.dockerignore text eol=lf
+
+# Binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.svg text eol=lf
+*.pdf binary
+*.zip binary
+*.tar binary
+*.gz binary
+*.7z binary
+*.exe binary
+*.dll binary
+*.so binary
+*.dylib binary
+*.jar binary
+*.war binary
+*.ear binary
+*.class binary
+*.pyc binary
+*.pyo binary
+*.mo binary
+*.db binary
+*.sqlite binary
+*.sqlite3 binary
+
+# Diff settings
+*.md diff=markdown
+*.py diff=python
+*.java diff=java
+*.rb diff=ruby
+*.go diff=golang
+*.rs diff=rust
+*.js diff=javascript
+*.ts diff=javascript
+
+# Export ignore (files to exclude from archive)
+.gitattributes export-ignore
+.gitignore export-ignore
+.github/ export-ignore
+tests/ export-ignore
+examples/projects/*/node_modules export-ignore
+*.test.* export-ignore
+*.draft.* export-ignore
+
+# Linguist overrides (for GitHub language detection)
+docs/* linguist-documentation
+examples/* linguist-documentation
+*.md linguist-documentation
+scripts/*.sh linguist-language=Shell

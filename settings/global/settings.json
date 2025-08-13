@@ -1,0 +1,64 @@
+{
+  "version": "1.0.0",
+  "environment": {
+    "default_editor": "${EDITOR:-vim}",
+    "shell": "${SHELL:-/bin/bash}",
+    "working_directory": "${HOME}/projects"
+  },
+  "claude_code": {
+    "model": "claude-opus-4-1-20250805",
+    "max_tokens": 8192,
+    "temperature": 0.0,
+    "tools": {
+      "enabled": true,
+      "parallel_execution": true,
+      "max_parallel_calls": 10
+    },
+    "agents": {
+      "auto_load": true,
+      "directories": [
+        "~/.claude/agents",
+        "./agents"
+      ]
+    },
+    "mcp_servers": {
+      "auto_start": true,
+      "timeout": 30000
+    }
+  },
+  "hooks": {
+    "enabled": true,
+    "pre_commit": {
+      "enabled": true,
+      "commands": []
+    },
+    "post_commit": {
+      "enabled": true,
+      "commands": []
+    },
+    "tool_hooks": {
+      "enabled": false,
+      "commands": []
+    }
+  },
+  "security": {
+    "disable_dangerous_commands": false,
+    "require_confirmation": [
+      "rm -rf",
+      "git push --force",
+      "DROP TABLE",
+      "DELETE FROM"
+    ],
+    "blocked_domains": [],
+    "allowed_directories": []
+  },
+  "logging": {
+    "enabled": false,
+    "level": "info",
+    "file": "~/.claude/logs/claude-code.log"
+  },
+  "profiles": {
+    "default": "personal",
+    "available": ["personal", "work", "client"]
+  }
+}

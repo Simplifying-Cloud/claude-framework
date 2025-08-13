@@ -1,0 +1,68 @@
+{
+  "name": "azure",
+  "version": "1.0.0",
+  "description": "Azure cloud services integration",
+  "server": {
+    "command": "azure-mcp-server",
+    "args": [],
+    "env": {
+      "AZURE_SUBSCRIPTION_ID": "${AZURE_SUBSCRIPTION_ID}",
+      "AZURE_TENANT_ID": "${AZURE_TENANT_ID}",
+      "AZURE_CLIENT_ID": "${AZURE_CLIENT_ID}",
+      "AZURE_CLIENT_SECRET": "${AZURE_CLIENT_SECRET}"
+    }
+  },
+  "capabilities": {
+    "categories": [
+      "documentation",
+      "bestpractices",
+      "resource_management",
+      "monitoring",
+      "storage",
+      "compute",
+      "networking",
+      "security",
+      "databases",
+      "ai_services"
+    ],
+    "tools": [
+      "mcp__azure__documentation",
+      "mcp__azure__bestpractices",
+      "mcp__azure__group",
+      "mcp__azure__subscription",
+      "mcp__azure__aks",
+      "mcp__azure__appconfig",
+      "mcp__azure__role",
+      "mcp__azure__cosmos",
+      "mcp__azure__grafana",
+      "mcp__azure__keyvault",
+      "mcp__azure__monitor",
+      "mcp__azure__postgres",
+      "mcp__azure__redis",
+      "mcp__azure__search",
+      "mcp__azure__servicebus",
+      "mcp__azure__sql",
+      "mcp__azure__storage",
+      "mcp__azure__bicepschema",
+      "mcp__azure__azureterraformbestpractices",
+      "mcp__azure__extension_az",
+      "mcp__azure__extension_azd",
+      "mcp__azure__extension_azqr"
+    ]
+  },
+  "configuration": {
+    "authentication": {
+      "type": "service_principal",
+      "methods": ["credential", "key", "connectionString"]
+    },
+    "retry": {
+      "maxRetries": 3,
+      "delay": 1000,
+      "maxDelay": 5000,
+      "mode": "exponential"
+    },
+    "defaultRegion": "eastus",
+    "timeout": 30000
+  },
+  "enabled": true
+}

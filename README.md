@@ -120,6 +120,7 @@ claude-framework/
 - **azure-cloud-architect**: Azure cloud solutions architect
 - **security-specialist**: Security and vulnerability specialist
 - **work-summary-agent**: Work summary generator
+- **performance-auditor**: Session performance analyzer
 
 ### Testing Agents
 - **test-automation-engineer**: Comprehensive test suite creation

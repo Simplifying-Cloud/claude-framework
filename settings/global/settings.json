@@ -38,7 +38,8 @@
     },
     "tool_hooks": {
       "enabled": false,
-      "commands": []
+      "commands": [],
+      "note": "Feature not yet implemented - see FUTURE_FEATURES.md"
     }
   },
   "security": {

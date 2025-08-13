@@ -6,7 +6,7 @@ A comprehensive framework for managing and versioning Claude Code configurations
 
 - **🤖 Agent Management**: Organize and version control custom Claude agents
 - **⚙️ Settings Templates**: Standardized configuration management
-- **🔌 MCP Server Configs**: Pre-configured Model Context Protocol servers
+- **🔌 MCP Server Configs**: GitHub and Azure MCP configurations
 - **🪝 Hook System**: Automate workflows with pre/post-commit hooks
 - **📦 Profile Support**: Switch between personal, work, and custom profiles
 - **🔄 Sync & Backup**: Automated synchronization and backup utilities
@@ -95,10 +95,7 @@ claude-framework/
 │   ├── configs/          # Server config files
 │   └── scripts/          # Setup scripts
 ├── hooks/                 # Automation hooks
-│   ├── pre-commit/       # Pre-commit hooks
-│   ├── post-commit/      # Post-commit hooks
-│   ├── tool/             # Tool-specific hooks
-│   └── custom/           # Custom hooks
+│   └── pre-commit/       # Pre-commit validation hook
 ├── templates/             # Document templates
 │   └── CLAUDE.md         # Project instruction template
 ├── scripts/               # Utility scripts
@@ -107,10 +104,7 @@ claude-framework/
 │   ├── backup.sh         # Backup management
 │   ├── validate.sh       # Validation script
 │   └── convert-agents.py # YAML to MD converter
-├── examples/              # Example projects
-│   ├── projects/         # Sample projects
-│   └── workflows/        # Workflow examples
-└── docs/                  # Documentation
+└── FUTURE_FEATURES.md    # Planned features tracking
 ```
 
 ## Available Agents
@@ -160,17 +154,12 @@ The framework includes pre-configured MCP servers:
 }
 ```
 
-### Azure Integration
-```json
-{
-  "name": "azure",
-  "capabilities": [
-    "documentation",
-    "resource_management",
-    "monitoring"
-  ]
-}
-```
+### Available MCP Servers
+
+- **GitHub Integration**: Repository management, PRs, issues
+- **Azure Integration**: Resource management and documentation
+
+*Note: See FUTURE_FEATURES.md for planned MCP server additions*
 
 ## Scripts Reference
 
@@ -352,14 +341,12 @@ MIT License - See LICENSE file for details
 
 ## Roadmap
 
-- [ ] GUI configuration tool
-- [ ] Cloud sync support
-- [ ] Agent marketplace
-- [ ] Advanced profile management
-- [ ] Integration with more MCP servers
-- [ ] Automated testing for agents
-- [ ] Performance profiling tools
-- [ ] Multi-language support
+See [FUTURE_FEATURES.md](FUTURE_FEATURES.md) for the complete roadmap including:
+- MCP server integrations (Security Vault, Framework Manager, Testing Orchestrator)
+- Documentation and examples
+- Advanced hook system
+- Multi-factor authentication
+- Automated testing infrastructure
 
 ---
 

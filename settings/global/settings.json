@@ -26,22 +26,7 @@
       "timeout": 30000
     }
   },
-  "hooks": {
-    "enabled": true,
-    "pre_commit": {
-      "enabled": true,
-      "commands": []
-    },
-    "post_commit": {
-      "enabled": true,
-      "commands": []
-    },
-    "tool_hooks": {
-      "enabled": false,
-      "commands": [],
-      "note": "Feature not yet implemented - see FUTURE_FEATURES.md"
-    }
-  },
+  "hooks": [],
   "security": {
     "disable_dangerous_commands": true,
     "require_confirmation": [

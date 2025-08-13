@@ -42,20 +42,27 @@
     }
   },
   "security": {
-    "disable_dangerous_commands": false,
+    "disable_dangerous_commands": true,
     "require_confirmation": [
       "rm -rf",
       "git push --force",
       "DROP TABLE",
-      "DELETE FROM"
+      "DELETE FROM",
+      "sudo rm",
+      "chmod 777",
+      "curl | bash",
+      "wget | sh"
     ],
     "blocked_domains": [],
     "allowed_directories": []
   },
   "logging": {
-    "enabled": false,
+    "enabled": true,
     "level": "info",
-    "file": "~/.claude/logs/claude-code.log"
+    "file": "~/.claude/logs/claude-code.log",
+    "audit_security_events": true,
+    "rotate_size": "10MB",
+    "rotate_count": 5
   },
   "profiles": {
     "default": "personal",

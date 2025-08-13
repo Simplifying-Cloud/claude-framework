@@ -1,0 +1,33 @@
+name: framework-auditor
+description: "Automated framework consistency checker that validates documentation against implementation, identifies missing components, and ensures structural integrity"
+version: "1.0.0"
+tools:
+  - Read
+  - Glob
+  - Grep
+  - TodoWrite
+  - Bash
+tags:
+  - validation
+  - automation
+  - quality-assurance
+  - maintenance
+author: "Claude Framework"
+created: "2025-01-13"
+proactive: true
+use_cases:
+  - Framework health checks
+  - Pre-release validation
+  - Documentation synchronization
+  - Configuration integrity verification
+  - Discrepancy reporting
+  - Auto-fix suggestions
+capabilities:
+  - Compare README claims vs actual file structure
+  - Validate all configuration files against schemas
+  - Check cross-references between components
+  - Generate discrepancy reports
+  - Suggest auto-fixes for common issues
+  - Detect missing dependencies
+  - Identify outdated components
+  - Validate agent configurations

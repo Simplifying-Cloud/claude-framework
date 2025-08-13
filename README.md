@@ -19,7 +19,7 @@ A comprehensive framework for managing and versioning Claude Code configurations
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/claude-framework.git
+git clone https://github.com/Simplifying-Cloud/claude-framework.git
 cd claude-framework
 ```
 
@@ -44,12 +44,15 @@ Agents are specialized Claude configurations for specific tasks:
 # List available agents
 ls agents/
 
-# Install an agent
-cp agents/development/go-expert.yaml ~/.claude/agents/
+# Install an agent (agents are now in .md format)
+cp agents/development/go-expert.md ~/.claude/agents/
+
+# Convert YAML agents to Markdown (if needed)
+python3 scripts/convert-agents.py agents/
 
 # Create custom agent
-cp agents/custom/template.yaml agents/custom/my-agent.yaml
-# Edit agents/custom/my-agent.yaml
+cp agents/custom/template.md agents/custom/my-agent.md
+# Edit agents/custom/my-agent.md
 ```
 
 #### Managing Settings
@@ -76,10 +79,12 @@ chmod +x ~/.claude/hooks/validate-code.sh
 
 ```
 claude-framework/
-├── agents/                  # Agent configurations
+├── agents/                  # Agent configurations (.md format)
 │   ├── development/        # Coding and development agents
 │   ├── operations/         # DevOps and operational agents
-│   ├── documentation/      # Documentation agents
+│   ├── testing/           # Testing and QA agents
+│   ├── security/          # Security scanning agents
+│   ├── maintenance/       # Framework maintenance agents
 │   ├── product/           # Product management agents
 │   └── custom/            # User-defined agents
 ├── settings/               # Configuration templates
@@ -99,7 +104,9 @@ claude-framework/
 ├── scripts/               # Utility scripts
 │   ├── setup.sh          # Installation script
 │   ├── sync.sh           # Sync configurations
-│   └── backup.sh         # Backup management
+│   ├── backup.sh         # Backup management
+│   ├── validate.sh       # Validation script
+│   └── convert-agents.py # YAML to MD converter
 ├── examples/              # Example projects
 │   ├── projects/         # Sample projects
 │   └── workflows/        # Workflow examples
@@ -112,6 +119,7 @@ claude-framework/
 - **go-expert**: Go programming specialist
 - **go-test-specialist**: Go testing expert
 - **meta-agent**: Creates new agent configurations
+- **agent-generator**: Intelligent agent configuration creator
 
 ### Operations Agents
 - **github-ops-specialist**: GitHub operations expert
@@ -119,10 +127,23 @@ claude-framework/
 - **security-specialist**: Security and vulnerability specialist
 - **work-summary-agent**: Work summary generator
 
+### Testing Agents
+- **test-automation-engineer**: Comprehensive test suite creation
+- **qa-testing-coordinator**: Testing orchestration
+
+### Security Agents
+- **secret-scanner-specialist**: Advanced secret detection and removal
+
+### Maintenance Agents
+- **framework-auditor**: Automated consistency checking
+- **documentation-maintainer**: Documentation synchronization
+- **config-migration-specialist**: Configuration versioning and migration
+
 ### Product Agents
 - **prd-writer**: Product requirements document creator
 - **requirements-verifier**: Requirements validation
-- **qa-testing-coordinator**: Testing orchestration
+- **prd-analytics-tracker**: Analytics and metrics tracking
+- **stakeholder-alignment-coordinator**: Stakeholder management
 
 ## MCP Server Integration
 
@@ -344,6 +365,7 @@ MIT License - See LICENSE file for details
 
 **Version**: 1.0.0  
 **Last Updated**: January 2025  
-**Maintainer**: Your Name
+**Maintainer**: Simplifying-Cloud Team  
+**Agent Format**: Markdown with YAML frontmatter (Claude Code compatible)
 
 Built with ❤️ for the Claude Code community

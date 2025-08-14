@@ -12,6 +12,9 @@ A comprehensive framework for managing and versioning Claude Code configurations
 - **🔄 Sync & Backup**: Automated synchronization and backup utilities
 - **📚 Documentation**: Comprehensive templates and examples
 - **🔒 Security First**: Built-in protection for sensitive data
+- **🚀 Utility Scripts**: Maintenance, performance dashboard, agent launcher
+- **📊 Analytics**: Performance tracking and optimization tools
+- **🎯 Workflow Templates**: Pre-built workflows for common tasks
 
 ## Quick Start
 
@@ -35,6 +38,27 @@ source ~/.bashrc  # or ~/.zshrc
 ```
 
 ### Basic Usage
+
+#### Utility Scripts
+
+The framework includes powerful utility scripts for automation:
+
+```bash
+# Run maintenance and health checks
+./scripts/maintenance.sh
+
+# Check MCP server configuration
+./scripts/mcp-check.sh
+
+# Launch agent reference guide
+./scripts/agent-launcher.sh
+
+# View performance analytics
+./scripts/performance-dashboard.sh
+
+# Switch between profiles
+./scripts/profile-switcher.sh
+```
 
 #### Working with Agents
 
@@ -74,6 +98,15 @@ Hooks automate tasks at various points:
 cp hooks/pre-commit/validate-code.sh ~/.claude/hooks/
 chmod +x ~/.claude/hooks/validate-code.sh
 ```
+
+## Documentation
+
+Comprehensive guides are available in the `docs/` directory:
+
+- **[MCP_SETUP.md](docs/MCP_SETUP.md)** - MCP server configuration guide
+- **[OPTIMIZATION_GUIDE.md](docs/OPTIMIZATION_GUIDE.md)** - Performance optimization tips
+- **[UTILITIES_GUIDE.md](docs/UTILITIES_GUIDE.md)** - Complete utilities reference
+- **[RECOMMENDATIONS_STATUS.md](docs/RECOMMENDATIONS_STATUS.md)** - Framework utilization guide
 
 ## Directory Structure
 

@@ -1,5 +1,10 @@
 {
   "version": "1.0.0",
+  "additionalDirectories": [
+      "~/.claude",
+      "~/.claude/agents",
+      "~/.claude/hooks"
+    ],
   "environment": {
     "default_editor": "${EDITOR:-vim}",
     "shell": "${SHELL:-/bin/bash}",
@@ -26,7 +31,43 @@
       "timeout": 30000
     }
   },
-  "hooks": [],
+  "hooks": {
+    "PreSession": [
+      {
+        "matcher": {},
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/session-start/auto-logger.sh"
+          }
+        ]
+      }
+    ],
+    "PostSession": [
+      {
+        "matcher": {},
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/session-end/auto-analyzer.sh ${CLAUDE_SESSION_ID} ${CLAUDE_SESSION_LOG}"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": {
+          "tools": ["Read", "Write", "Edit", "Bash", "MultiEdit"]
+        },
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/tool-use/log-interceptor.sh ${TOOL_NAME} ${TOOL_PARAMS}"
+          }
+        ]
+      }
+    ]
+  },
   "security": {
     "disable_dangerous_commands": true,
     "require_confirmation": [

@@ -2,7 +2,9 @@
 
 ## Overview
 
-The Claude Framework now includes **automatic session logging** that captures all your Claude Code sessions without any manual intervention. Performance metrics are automatically calculated and stored for analysis.
+The Claude Framework includes session logging infrastructure that captures Claude Code sessions. Performance metrics are automatically calculated and stored for analysis.
+
+> **Note**: Due to current Claude Code CLI hook compatibility, automatic triggering is temporarily disabled. The logging system is fully functional but requires manual invocation after sessions.
 
 ## How It Works
 

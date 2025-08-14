@@ -58,44 +58,61 @@ validate_json_files() {
     echo
 }
 
-validate_yaml_files() {
-    echo "Validating YAML files..."
+validate_markdown_agents() {
+    echo "Validating Markdown agent files..."
     
-    if command -v python3 &> /dev/null; then
-        for file in $(find "$FRAMEWORK_DIR/agents" -name "*.yaml" -o -name "*.yml" 2>/dev/null); do
-            if python3 -c "import yaml; yaml.safe_load(open('$file'))" 2>/dev/null; then
-                print_success "Valid YAML: $(basename "$file")"
+    for file in $(find "$FRAMEWORK_DIR/agents" -name "*.md" 2>/dev/null | head -20); do
+        # Check if file has YAML frontmatter
+        if head -1 "$file" | grep -q "^---$"; then
+            # Extract frontmatter
+            frontmatter=$(sed -n '/^---$/,/^---$/p' "$file" | sed '1d;$d')
+            
+            # Check required fields
+            if echo "$frontmatter" | grep -q "^name:" && \
+               echo "$frontmatter" | grep -q "^description:" && \
+               echo "$frontmatter" | grep -q "^tools:"; then
+                print_success "Valid agent: $(basename "$file")"
             else
-                print_error "Invalid YAML: $file"
+                print_error "Missing required fields in: $(basename "$file")"
             fi
-        done
-    else
-        print_warning "Python3 not found, skipping YAML validation"
-    fi
+        else
+            print_error "No YAML frontmatter in: $(basename "$file")"
+        fi
+    done
     echo
 }
 
 validate_agent_structure() {
-    echo "Validating agent configurations..."
+    echo "Validating agent markdown files..."
     
-    for agent in "$FRAMEWORK_DIR/agents"/**/*.yaml; do
+    agent_count=0
+    for agent in "$FRAMEWORK_DIR/agents"/**/*.md "$FRAMEWORK_DIR/agents"/*.md; do
         if [ -f "$agent" ]; then
-            # Check required fields
-            name=$(grep "^name:" "$agent" 2>/dev/null | head -1)
-            desc=$(grep "^description:" "$agent" 2>/dev/null | head -1)
-            tools=$(grep "^tools:" "$agent" 2>/dev/null | head -1)
-            
-            if [ -z "$name" ]; then
-                print_error "Missing 'name' field in $(basename "$agent")"
-            elif [ -z "$desc" ]; then
-                print_error "Missing 'description' field in $(basename "$agent")"
-            elif [ -z "$tools" ]; then
-                print_warning "Missing 'tools' field in $(basename "$agent")"
+            agent_count=$((agent_count + 1))
+            # Check for YAML frontmatter
+            if head -1 "$agent" | grep -q "^---$"; then
+                # Extract frontmatter
+                frontmatter=$(sed -n '/^---$/,/^---$/p' "$agent" | sed '1d;$d')
+                
+                # Check required fields
+                if echo "$frontmatter" | grep -q "^name:" && \
+                   echo "$frontmatter" | grep -q "^description:" && \
+                   echo "$frontmatter" | grep -q "^tools:"; then
+                    print_success "Valid agent: $(basename "$agent")"
+                else
+                    print_error "Missing required fields in: $(basename "$agent")"
+                fi
             else
-                print_success "Valid structure: $(basename "$agent")"
+                print_error "No YAML frontmatter in: $(basename "$agent")"
             fi
         fi
     done
+    
+    if [ $agent_count -eq 0 ]; then
+        print_warning "No agent markdown files found"
+    else
+        echo "Total agents validated: $agent_count"
+    fi
     echo
 }
 
@@ -218,7 +235,7 @@ main() {
     # Run all validations
     validate_directory_structure
     validate_json_files
-    validate_yaml_files
+    validate_markdown_agents
     validate_agent_structure
     validate_mcp_configs
     validate_scripts

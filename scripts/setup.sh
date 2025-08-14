@@ -99,9 +99,20 @@ create_directories() {
 install_agents() {
     echo "Installing agents..."
     
-    # Copy agents
+    # Copy agents preserving directory structure
     if [ -d "$FRAMEWORK_DIR/agents" ]; then
-        cp -r "$FRAMEWORK_DIR/agents/"* "$CLAUDE_HOME/agents/" 2>/dev/null || true
+        # Create agent subdirectories
+        for subdir in development operations maintenance product security testing custom uncategorized; do
+            if [ -d "$FRAMEWORK_DIR/agents/$subdir" ]; then
+                mkdir -p "$CLAUDE_HOME/agents/$subdir"
+                # Copy only .md files from each subdirectory
+                find "$FRAMEWORK_DIR/agents/$subdir" -maxdepth 1 -name "*.md" -exec cp {} "$CLAUDE_HOME/agents/$subdir/" \; 2>/dev/null || true
+            fi
+        done
+        
+        # Copy any root-level .md files (but not directories)
+        find "$FRAMEWORK_DIR/agents" -maxdepth 1 -name "*.md" -exec cp {} "$CLAUDE_HOME/agents/" \; 2>/dev/null || true
+        
         print_success "Installed agent configurations"
     fi
     

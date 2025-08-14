@@ -31,7 +31,32 @@
       "timeout": 30000
     }
   },
-  "hooks": {},
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/simple-logger.sh",
+            "timeout": 2
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/simple-logger.sh analyze",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  },
   "security": {
     "disable_dangerous_commands": true,
     "require_confirmation": [

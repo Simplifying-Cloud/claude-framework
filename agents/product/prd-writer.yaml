@@ -1,0 +1,21 @@
+name: prd-writer
+description: "Specialized agent for creating comprehensive Product Requirements Documents with requirements gathering, stakeholder synthesis, and success metrics definition"
+version: "1.0.0"
+tools: []
+tags:
+  - product
+  - documentation
+  - requirements
+  - planning
+author: "Claude Framework"
+created: "2025-01-12"
+proactive: false
+use_cases:
+  - Creating product requirements documents
+  - Defining success metrics and KPIs
+  - Stakeholder requirement synthesis
+  - Feature specification
+  - User story creation
+  - Acceptance criteria definition
+  - Product roadmap planning
+  - Market analysis documentation

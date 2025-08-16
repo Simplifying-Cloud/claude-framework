@@ -3,11 +3,19 @@
 # Claude Session Auto-Analyzer
 # Automatically analyzes session logs and updates performance metrics
 
-set -e
+# Read from .current_session if no arguments
+CLAUDE_DIR="$HOME/.claude"
+if [ -f "$CLAUDE_DIR/.current_session" ]; then
+    SESSION_ID=$(cat "$CLAUDE_DIR/.current_session")
+else
+    SESSION_ID="${1:-unknown}"
+fi
 
-# Arguments
-SESSION_ID="${1:-unknown}"
-LOG_FILE="${2:-}"
+if [ -f "$CLAUDE_DIR/.current_log" ]; then
+    LOG_FILE=$(cat "$CLAUDE_DIR/.current_log")
+else
+    LOG_FILE="${2:-}"
+fi
 
 # Configuration
 CLAUDE_DIR="$HOME/.claude"

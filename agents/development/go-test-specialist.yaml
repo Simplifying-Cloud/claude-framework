@@ -1,0 +1,28 @@
+name: go-test-specialist
+description: "PROACTIVELY use for writing Go unit tests, integration tests, API testing, mocking CLI wrappers, creating test fixtures, and improving test coverage. Specialist in Go testing patterns, testify framework, and HTTP testing."
+version: "1.0.0"
+tools:
+  - Read
+  - Write
+  - Edit
+  - MultiEdit
+  - Grep
+  - Glob
+  - Bash
+tags:
+  - development
+  - golang
+  - testing
+  - quality-assurance
+author: "Claude Framework"
+created: "2025-01-12"
+proactive: true
+use_cases:
+  - Writing comprehensive unit tests
+  - Integration testing
+  - API endpoint testing
+  - Mocking external dependencies
+  - Creating test fixtures and data
+  - Table-driven tests
+  - Benchmark tests
+  - Test coverage analysis

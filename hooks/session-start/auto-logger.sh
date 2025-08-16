@@ -3,8 +3,6 @@
 # Claude Session Auto-Logger
 # Automatically captures and logs all Claude Code sessions
 
-set -e
-
 # Configuration
 CLAUDE_DIR="$HOME/.claude"
 LOGS_DIR="$CLAUDE_DIR/logs/sessions"
@@ -12,6 +10,11 @@ ANALYTICS_DIR="$CLAUDE_DIR/analytics"
 TIMESTAMP=$(date +%Y%m%d_%H%M%S)
 SESSION_ID="session_${TIMESTAMP}_$$"
 LOG_FILE="$LOGS_DIR/${SESSION_ID}.log"
+
+# Read JSON input from stdin if available
+if [ ! -t 0 ]; then
+    HOOK_INPUT=$(cat)
+fi
 
 # Colors
 GREEN='\033[0;32m'
@@ -46,14 +49,12 @@ export CLAUDE_AUTO_LOGGING="enabled"
 
 # Create session marker
 echo "$SESSION_ID" > "$CLAUDE_DIR/.current_session"
+echo "$LOG_FILE" > "$CLAUDE_DIR/.current_log"
 
-# Log session start
-echo -e "${BLUE}🔵 Session logging initialized${NC}"
-echo -e "Session ID: ${GREEN}$SESSION_ID${NC}"
-echo -e "Log file: $LOG_FILE"
-
-# Set up trap to process log on exit
-trap 'bash ~/.claude/hooks/session-end/auto-analyzer.sh "$SESSION_ID" "$LOG_FILE"' EXIT
+# Log session start (to stderr so it doesn't interfere with hook output)
+echo -e "${BLUE}🔵 Session logging initialized${NC}" >&2
+echo -e "Session ID: ${GREEN}$SESSION_ID${NC}" >&2
+echo -e "Log file: $LOG_FILE" >&2
 
 # Export functions for Claude to use
 export -f log_operation

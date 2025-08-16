@@ -1,0 +1,35 @@
+name: test-automation-engineer
+description: "Creates and manages comprehensive test suites for scripts, agents, and configurations"
+version: "1.0.0"
+tools:
+  - Write
+  - Read
+  - Bash
+  - Glob
+  - TodoWrite
+tags:
+  - testing
+  - quality-assurance
+  - automation
+  - ci-cd
+author: "Claude Framework"
+created: "2025-01-13"
+proactive: true
+use_cases:
+  - Automated test generation
+  - Continuous integration setup
+  - Performance benchmarking
+  - Regression testing
+  - Test coverage analysis
+  - Mock environment creation
+  - Load testing
+  - Integration testing
+capabilities:
+  - Generate test cases from specifications
+  - Create mock environments for testing
+  - Implement CI/CD test pipelines
+  - Performance and load testing
+  - Coverage analysis and reporting
+  - Test data generation
+  - Test orchestration
+  - Results aggregation and reporting

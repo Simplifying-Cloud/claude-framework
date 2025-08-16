@@ -1,0 +1,61 @@
+{
+  "name": "testing-orchestrator",
+  "version": "1.0.0",
+  "description": "Automated testing infrastructure for framework components",
+  "server": {
+    "command": "claude-test-orchestrator",
+    "args": ["--config", "/etc/claude/testing.yaml"],
+    "env": {
+      "TEST_ENVIRONMENT": "local",
+      "PARALLEL_JOBS": "4"
+    }
+  },
+  "capabilities": {
+    "test_types": [
+      "unit_testing",
+      "integration_testing",
+      "performance_testing",
+      "security_testing",
+      "chaos_engineering",
+      "coverage_analysis",
+      "regression_testing",
+      "smoke_testing"
+    ],
+    "tools": [
+      "mcp__testing__run_unit",
+      "mcp__testing__run_integration",
+      "mcp__testing__run_performance",
+      "mcp__testing__run_security",
+      "mcp__testing__run_chaos",
+      "mcp__testing__coverage_report",
+      "mcp__testing__generate_tests",
+      "mcp__testing__mock_create",
+      "mcp__testing__benchmark"
+    ]
+  },
+  "frameworks": {
+    "bash": {
+      "runner": "bats",
+      "config": ".bats"
+    },
+    "python": {
+      "runner": "pytest",
+      "config": "pytest.ini"
+    },
+    "javascript": {
+      "runner": "jest",
+      "config": "jest.config.js"
+    },
+    "go": {
+      "runner": "go test",
+      "config": "go.mod"
+    }
+  },
+  "reporting": {
+    "formats": ["json", "html", "junit", "coverage"],
+    "destinations": ["console", "file", "api"],
+    "real_time": true
+  },
+  "enabled": false,
+  "note": "Requires claude-test-orchestrator package installation"
+}

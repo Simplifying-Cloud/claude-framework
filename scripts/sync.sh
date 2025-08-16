@@ -126,6 +126,13 @@ sync_push() {
         print_success "MCP configs synced"
     fi
     
+    # Sync CLAUDE.md configuration
+    if [ -f "$CLAUDE_HOME/CLAUDE.md" ]; then
+        echo "Syncing CLAUDE.md configuration..."
+        cp "$CLAUDE_HOME/CLAUDE.md" "$FRAMEWORK_DIR/CLAUDE.md"
+        print_success "CLAUDE.md synced"
+    fi
+    
     print_success "Push complete!"
 }
 
@@ -171,6 +178,13 @@ sync_pull() {
         echo "Pulling MCP configs..."
         rsync -av "$FRAMEWORK_DIR/mcp-servers/" "$CLAUDE_HOME/mcp-servers/"
         print_success "MCP configs pulled"
+    fi
+    
+    # Pull CLAUDE.md configuration
+    if [ -f "$FRAMEWORK_DIR/CLAUDE.md" ]; then
+        echo "Pulling CLAUDE.md configuration..."
+        cp "$FRAMEWORK_DIR/CLAUDE.md" "$CLAUDE_HOME/CLAUDE.md"
+        print_success "CLAUDE.md pulled"
     fi
     
     print_success "Pull complete!"

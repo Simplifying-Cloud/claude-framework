@@ -441,6 +441,24 @@ cat ~/.claude/analytics/trends.csv
 - **Performance Score**: >85/100
 - **Zero Anti-Patterns**: No multiple edits to same file
 
+## Core Development Philosophy
+
+### KISS (Keep It Simple, Stupid)
+
+Simplicity should be a key goal in design. Choose straightforward solutions over complex ones whenever possible. Simple solutions are easier to understand, maintain, and debug.
+
+### YAGNI (You Aren't Gonna Need It)
+
+Avoid building functionality on speculation. Implement features only when they are needed, not when you anticipate they might be useful in the future.
+
+### Design Principles
+
+- **IMPORTANT** Go is the preferred language for all projects.
+- External libraries use should be kept to a minimum, and only used when absolutely required.
+- Frontend services should be provided through WebAssembly whenever possible.
+- Any deviation should be done using the most simple option possible unless explicitly requested to do differently.
+- All work should be considered a minimum viable product unless explicitly requested to do differently.
+
 ## Critical Thinking Reminders
 
 ### Adaptive Problem-Solving

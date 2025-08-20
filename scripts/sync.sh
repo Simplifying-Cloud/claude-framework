@@ -164,6 +164,28 @@ sync_pull() {
         print_success "Settings pulled"
     fi
     
+    # Pull global settings permissions to settings.local.json
+    if [ -f "$FRAMEWORK_DIR/settings/global/settings.json" ]; then
+        echo "Applying global permissions to local settings..."
+        global_settings="$FRAMEWORK_DIR/settings/global/settings.json"
+        local_settings="$CLAUDE_HOME/settings.local.json"
+        
+        # Extract permissions from global settings
+        if jq -e '.permissions' "$global_settings" > /dev/null 2>&1; then
+            # If local settings exists, merge permissions
+            if [ -f "$local_settings" ]; then
+                jq --slurpfile global "$global_settings" \
+                   '.permissions = $global[0].permissions' \
+                   "$local_settings" > "$local_settings.tmp"
+                mv "$local_settings.tmp" "$local_settings"
+            else
+                # Create new local settings with permissions
+                jq '{permissions: .permissions}' "$global_settings" > "$local_settings"
+            fi
+            print_success "Permissions applied to settings.local.json"
+        fi
+    fi
+    
     # Pull hooks
     if [ -d "$FRAMEWORK_DIR/hooks" ]; then
         echo "Pulling hooks..."

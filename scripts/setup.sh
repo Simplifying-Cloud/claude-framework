@@ -133,6 +133,28 @@ install_settings() {
         fi
     fi
     
+    # Apply global permissions to settings.local.json
+    if [ -f "$FRAMEWORK_DIR/settings/global/settings.json" ]; then
+        echo "Applying global permissions..."
+        global_settings="$FRAMEWORK_DIR/settings/global/settings.json"
+        local_settings="$CLAUDE_HOME/settings.local.json"
+        
+        # Extract permissions from global settings and create/update local settings
+        if jq -e '.permissions' "$global_settings" > /dev/null 2>&1; then
+            if [ -f "$local_settings" ]; then
+                # Merge permissions into existing local settings
+                jq --slurpfile global "$global_settings" \
+                   '.permissions = $global[0].permissions' \
+                   "$local_settings" > "$local_settings.tmp"
+                mv "$local_settings.tmp" "$local_settings"
+            else
+                # Create new local settings with permissions from global
+                jq '{permissions: .permissions}' "$global_settings" > "$local_settings"
+            fi
+            print_success "Applied global permissions to settings.local.json"
+        fi
+    fi
+    
     echo
 }
 

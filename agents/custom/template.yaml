@@ -1,0 +1,38 @@
+name: custom-agent-template
+description: "Template for creating custom agents. Copy this file and modify for your specific needs"
+version: "1.0.0"
+tools:
+  # List the tools your agent needs access to
+  # Common tools: Read, Write, Edit, MultiEdit, Bash, Grep, Glob, WebFetch, TodoWrite
+  - Read
+  - Write
+tags:
+  # Add relevant tags for categorization
+  # Examples: development, operations, security, testing, documentation, automation
+  - custom
+  - template
+author: "Your Name"
+created: "YYYY-MM-DD"
+proactive: false  # Set to true if agent should be used proactively
+use_cases:
+  # List specific use cases for this agent
+  - Example use case 1
+  - Example use case 2
+capabilities:
+  # List what this agent can do
+  - Example capability 1
+  - Example capability 2
+dependencies:
+  # Optional: List any dependencies
+  # - name: another-agent
+  #   version: ">=1.0.0"
+mcp_servers:
+  # Optional: List required MCP servers
+  # - framework-manager
+  # - security-vault
+configuration:
+  # Optional: Agent-specific configuration
+  # key: value
+notes: |
+  # Additional notes about this agent
+  # Usage instructions, limitations, etc.

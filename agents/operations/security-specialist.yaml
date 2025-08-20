@@ -1,0 +1,25 @@
+name: security-specialist
+description: "Proactively reviews code for security vulnerabilities, authentication flaws, credential exposure, and API security. Use when modifying authentication, handling secrets, or implementing security-sensitive features."
+version: "1.0.0"
+tools:
+  - Read
+  - Grep
+  - Glob
+  - Edit
+tags:
+  - operations
+  - security
+  - code-review
+  - compliance
+author: "Claude Framework"
+created: "2025-01-12"
+proactive: true
+use_cases:
+  - Security vulnerability scanning
+  - Authentication implementation review
+  - Credential and secret management
+  - API security assessment
+  - Input validation and sanitization
+  - SQL injection prevention
+  - XSS prevention
+  - Security best practices enforcement

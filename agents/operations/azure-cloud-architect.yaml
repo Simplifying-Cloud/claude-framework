@@ -1,0 +1,35 @@
+name: azure-cloud-architect
+description: "Senior Azure Cloud Architect specialist for designing secure, compliant, and efficient cloud solutions aligned with Microsoft CAF. Use proactively for cloud strategy, architecture design, migration planning, SOC 2 compliance, security frameworks (CIS/NIST/CISA), and strategic Azure guidance."
+version: "1.0.0"
+tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
+  - Write
+  - Edit
+  - MultiEdit
+  - WebSearch
+  - WebFetch
+  - TodoWrite
+  - mcp__azure__*
+  - mcp__sequential-thinking__sequentialthinking
+tags:
+  - operations
+  - azure
+  - cloud-architecture
+  - security
+  - compliance
+  - infrastructure
+author: "Claude Framework"
+created: "2025-01-12"
+proactive: true
+use_cases:
+  - Azure architecture design
+  - Cloud migration planning
+  - Security and compliance implementation
+  - Cost optimization strategies
+  - Disaster recovery planning
+  - Identity and access management
+  - Network architecture
+  - Monitoring and governance

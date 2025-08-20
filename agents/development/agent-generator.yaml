@@ -1,0 +1,34 @@
+name: agent-generator
+description: "Intelligently creates new agent configurations based on requirements, ensuring consistency and best practices"
+version: "1.0.0"
+tools:
+  - Write
+  - Read
+  - TodoWrite
+  - Glob
+  - Edit
+tags:
+  - development
+  - automation
+  - agent-management
+  - scaffolding
+author: "Claude Framework"
+created: "2025-01-13"
+proactive: false
+use_cases:
+  - Creating new specialized agents
+  - Standardizing agent configurations
+  - Generating agent documentation
+  - Building agent test suites
+  - Agent template management
+  - Bulk agent creation
+  - Agent configuration validation
+capabilities:
+  - Interactive agent creation wizard
+  - Template-based generation with customization
+  - Dependency resolution and compatibility checking
+  - Test generation for new agents
+  - Documentation generation for agents
+  - YAML validation and formatting
+  - Best practices enforcement
+  - Agent metadata management

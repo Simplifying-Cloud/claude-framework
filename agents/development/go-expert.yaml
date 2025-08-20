@@ -1,0 +1,28 @@
+name: go-expert
+description: "Use proactively for writing idiomatic, production-grade Go code including APIs, CLI wrappers, concurrent applications, and cloud-native services. Specialist for Go architecture, error handling, performance optimization, and following Go best practices."
+version: "1.0.0"
+tools:
+  - Read
+  - Write
+  - Edit
+  - MultiEdit
+  - Grep
+  - Glob
+  - Bash
+tags:
+  - development
+  - golang
+  - architecture
+  - performance
+author: "Claude Framework"
+created: "2025-01-12"
+proactive: true
+use_cases:
+  - Writing Go APIs and microservices
+  - Creating CLI tools and wrappers
+  - Implementing concurrent/parallel processing
+  - Cloud-native application development
+  - Go module management
+  - Performance optimization
+  - Error handling patterns
+  - Testing strategies

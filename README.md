@@ -1,13 +1,14 @@
 # Claude Framework
 
-A comprehensive framework for managing and versioning Claude Code configurations, agents, MCP servers, hooks, and settings.
+A comprehensive framework for managing and versioning Claude Code configurations, agents, MCP servers, hooks, and settings with an adaptive multi-mode execution system.
 
 ## Features
 
-- **🤖 Agent Management**: Organize and version control custom Claude agents
-- **⚙️ Settings Templates**: Standardized configuration management
+- **🎯 Adaptive Multi-Mode System**: Intelligent execution modes (Safe/Balanced/Extreme) that adapt to context
+- **🤖 Agent Management**: 30+ specialized agents for development, operations, testing, and more
+- **⚙️ Settings Templates**: Standardized configuration management with global and local settings
 - **🔌 MCP Server Configs**: GitHub and Azure MCP configurations
-- **🪝 Hook System**: Automate workflows with pre/post-commit hooks
+- **🪝 Hook System**: Automate workflows with pre/post-commit and session hooks
 - **📦 Profile Support**: Switch between personal, work, and custom profiles
 - **🔄 Sync & Backup**: Automated synchronization and backup utilities
 - **📚 Documentation**: Comprehensive templates and examples
@@ -15,6 +16,31 @@ A comprehensive framework for managing and versioning Claude Code configurations
 - **🚀 Utility Scripts**: Maintenance, performance dashboard, agent launcher
 - **📊 Analytics**: Performance tracking and optimization tools
 - **🎯 Workflow Templates**: Pre-built workflows for common tasks
+- **🧠 Core Philosophy**: KISS (Keep It Simple) and YAGNI (You Aren't Gonna Need It) principles
+
+## Multi-Mode Execution System
+
+The framework features an intelligent adaptive execution system with three modes:
+
+### 🛡️ Safe Mode
+- **Use Case**: Production environments, critical operations
+- **Parallel Ops**: 3-5 maximum
+- **Features**: Maximum validation, automatic rollback, full audit logging
+- **Reliability**: 99.9% target
+
+### ⚖️ Balanced Mode (Default)
+- **Use Case**: Most operations, development, testing
+- **Parallel Ops**: 5-10 adaptive
+- **Features**: Smart validation, error recovery with retry
+- **Performance**: 2-3x improvement over sequential
+
+### ⚡ Extreme Mode
+- **Use Case**: Prototyping, benchmarks, bulk operations
+- **Parallel Ops**: 15-30 aggressive
+- **Features**: Minimal validation, maximum speed
+- **Performance**: 5-10x theoretical improvement
+
+The system automatically selects the appropriate mode based on context, or you can manually override with mode tags or environment variables.
 
 ## Quick Start
 
@@ -112,39 +138,54 @@ Comprehensive guides are available in the `docs/` directory:
 
 ```
 claude-framework/
-├── agents/                  # Agent configurations (.md format)
-│   ├── development/        # Coding and development agents
-│   ├── operations/         # DevOps and operational agents
-│   ├── testing/           # Testing and QA agents
-│   ├── security/          # Security scanning agents
+├── agents/                  # Agent configurations (.md and .yaml formats)
+│   ├── cloud/             # Cloud infrastructure agents
+│   ├── custom/            # User-defined agents
+│   ├── development/       # Coding and development agents
+│   ├── documentation/     # Documentation specialists
 │   ├── maintenance/       # Framework maintenance agents
+│   ├── operations/        # DevOps and operational agents
 │   ├── product/           # Product management agents
-│   └── custom/            # User-defined agents
-├── settings/               # Configuration templates
-│   ├── global/            # Global settings
-│   ├── project-templates/ # Project-specific templates
-│   └── environments/      # Environment configs
-├── mcp-servers/           # MCP server configurations
+│   ├── security/          # Security scanning agents
+│   └── testing/           # Testing and QA agents
+├── configurations/        # Execution mode configurations
+│   ├── SAFE_MODE.md      # Production-ready safe execution
+│   ├── BALANCED_MODE.md  # Default balanced execution
+│   └── EXTREME_MODE.md   # High-performance execution
+├── settings/              # Configuration templates
+│   └── global/           # Global settings
+├── mcp-servers/          # MCP server configurations
 │   ├── configs/          # Server config files
 │   └── scripts/          # Setup scripts
-├── hooks/                 # Automation hooks
-│   └── pre-commit/       # Pre-commit validation hook
-├── templates/             # Document templates
-│   └── CLAUDE.md         # Project instruction template
-├── scripts/               # Utility scripts
-│   ├── setup.sh          # Installation script
-│   ├── sync.sh           # Sync configurations
-│   ├── backup.sh         # Backup management
-│   ├── validate.sh       # Validation script
-│   └── convert-agents.py # YAML to MD converter
-└── FUTURE_FEATURES.md    # Planned features tracking
+├── hooks/                # Automation hooks
+│   ├── pre-commit/       # Pre-commit validation
+│   ├── post-commit/      # Post-commit actions
+│   ├── session-start/    # Session initialization
+│   ├── session-end/      # Session cleanup
+│   └── tool-use/         # Tool execution hooks
+├── templates/            # Document templates
+│   └── CLAUDE.md        # Project instruction template
+├── scripts/              # Utility scripts
+│   ├── setup.sh         # Installation script
+│   ├── sync.sh          # Sync configurations
+│   ├── backup.sh        # Backup management
+│   ├── validate.sh      # Validation script
+│   └── maintenance.sh   # System maintenance
+├── docs/                 # Documentation
+└── CLAUDE.md            # Framework configuration guide
 ```
 
 ## Available Agents
 
+### Cloud Infrastructure
+- **azure-deployment-specialist**: Azure deployment and containerization expert
+- **cloud-infrastructure-manager**: Cloud infrastructure and IaC specialist
+
 ### Development Agents
 - **go-expert**: Go programming specialist
-- **go-test-specialist**: Go testing expert
+- **go-test-specialist**: Go testing expert  
+- **frontend-engineer**: Modern frontend development specialist
+- **solution-architect**: Platform-agnostic solution architect
 - **meta-agent**: Creates new agent configurations
 - **agent-generator**: Intelligent agent configuration creator
 
@@ -155,10 +196,19 @@ claude-framework/
 - **work-summary-agent**: Work summary generator
 - **performance-auditor**: Session performance analyzer
 - **filesystem-orchestrator**: Optimizes complex filesystem operations
+- **observability-specialist**: Monitoring and observability expert
+- **compliance-auditor**: Compliance and regulatory specialist
+- **data-analyst**: Business intelligence and data analysis
+- **project-manager**: Comprehensive project management
+- **secret-scanner-specialist**: Advanced secret detection
+
+### Documentation
+- **technical-writer**: Technical documentation specialist
 
 ### Testing Agents
 - **test-automation-engineer**: Comprehensive test suite creation
 - **qa-testing-coordinator**: Testing orchestration
+- **performance-engineer**: Performance testing and optimization
 
 ### Security Agents
 - **secret-scanner-specialist**: Advanced secret detection and removal
@@ -169,6 +219,7 @@ claude-framework/
 - **config-migration-specialist**: Configuration versioning and migration
 
 ### Product Agents
+- **business-analyst**: Business requirements and analysis
 - **prd-writer**: Product requirements document creator
 - **requirements-verifier**: Requirements validation
 - **prd-analytics-tracker**: Analytics and metrics tracking
@@ -242,6 +293,14 @@ Manages configuration backups:
 ```
 
 ## Configuration
+
+### Framework Configuration (CLAUDE.md)
+
+The framework uses `CLAUDE.md` as its primary configuration guide, which includes:
+- Core development philosophy (KISS and YAGNI principles)
+- Multi-mode execution system configuration
+- Automatic mode detection rules
+- Performance metrics and best practices
 
 ### Global Settings
 
@@ -385,9 +444,10 @@ See [FUTURE_FEATURES.md](FUTURE_FEATURES.md) for the complete roadmap including:
 
 ---
 
-**Version**: 1.0.0  
-**Last Updated**: January 2025  
+**Version**: 2.0.0  
+**Last Updated**: August 2025  
 **Maintainer**: Simplifying-Cloud Team  
-**Agent Format**: Markdown with YAML frontmatter (Claude Code compatible)
+**Agent Format**: Markdown with YAML frontmatter (Claude Code compatible)  
+**Execution Modes**: Safe, Balanced (default), and Extreme adaptive modes
 
 Built with ❤️ for the Claude Code community
